@@ -29,7 +29,7 @@ class wirelessNode extends HtmlNode {
       <div>
         <div class="uml-headExport">
                     ${icon}
-                    <div>互联网</div>
+                    <div>无线路由器</div>
         </div>
       </div>
     `;
@@ -59,6 +59,13 @@ class wirelessNodeModel extends HtmlNodeModel {
     this.text.editable = false;
     this.width = 120;
     this.height = 100;
+    const target1 = {
+      message: '无线路由器不能连接此设备',
+      validate: (sourceNode, targetNode, sourceAnchor, targetAnchor) => {
+        return targetNode.type != 'web-node'&&targetNode.type != 'router-node'
+      },
+    }
+    this.sourceRules.push(target1)
   }
   setAttributes() {
     let that = this;

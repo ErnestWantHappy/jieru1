@@ -47,6 +47,13 @@ class pcNodeModel extends HtmlNodeModel {
     this.text.editable = false;
     this.width = 120;
     this.height = 100;
+    const target1 = {
+      message: '台式电脑不能指向连接其他设备',
+      validate: (sourceNode, targetNode, sourceAnchor, targetAnchor) => {
+        return 0
+      },
+    }
+    this.sourceRules.push(target1)
   }
   setAttributes() {
     let that = this;

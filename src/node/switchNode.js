@@ -57,6 +57,34 @@ class switchNodeModel extends HtmlNodeModel {
     this.text.editable = false;
     this.width = 120;
     this.height = 100;
+    const target1 = {
+      message: '交换机不能连接互联网',
+      validate: (sourceNode, targetNode, sourceAnchor, targetAnchor) => {
+        return targetNode.type != 'web-node'
+      },
+    }
+    this.sourceRules.push(target1)
+    const target2 = {
+      message: '交换机不能连接光猫路由器',
+      validate: (sourceNode, targetNode, sourceAnchor, targetAnchor) => {
+        return targetNode.type != 'router-node'
+      },
+    }
+    this.sourceRules.push(target2)
+    const target3 = {
+      message: '交换机不能连接手机',
+      validate: (sourceNode, targetNode, sourceAnchor, targetAnchor) => {
+        return targetNode.type != 'phone-node'
+      },
+    }
+    this.sourceRules.push(target3)
+    const target4 = {
+      message: '交换机不能连接平板电脑',
+      validate: (sourceNode, targetNode, sourceAnchor, targetAnchor) => {
+        return targetNode.type != 'tablet-node'
+      },
+    }
+    this.sourceRules.push(target4)
   }
   setAttributes() {
     let that = this;

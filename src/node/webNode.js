@@ -56,6 +56,13 @@ class webNodeModel extends HtmlNodeModel {
     this.text.editable = false;
     this.width = 120;
     this.height = 100;
+    const target1 = {
+      message: '互联网只能连接光猫路由器',
+      validate: (sourceNode, targetNode, sourceAnchor, targetAnchor) => {
+        return targetNode.type === 'router-node'
+      },
+    }
+    this.sourceRules.push(target1)
   }
   setAttributes() {
     let that = this;
